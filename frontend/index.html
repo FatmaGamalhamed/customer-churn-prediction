@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Customer Churn Analytics</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- Sidebar -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+                <div class="brand-icon">CC</div>
+
+                <div>
+                    <h2>ChurnPredict</h2>
+                    <span>ML Analytics</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+
+                <a href="#dashboard" class="nav-item active">
+                    <span>Dashboard</span>
+                </a>
+
+                <a href="#prediction" class="nav-item">
+                    <span>Prediction</span>
+                </a>
+
+                <a href="#analytics" class="nav-item">
+                    <span>Analytics</span>
+                </a>
+
+                <a href="#model" class="nav-item">
+                    <span>Model Performance</span>
+                </a>
+
+            </nav>
+
+            <div class="sidebar-footer">
+                <span>Machine Learning</span>
+                <small>Customer Churn Prediction</small>
+            </div>
+
+        </aside>
+
+
+        <!-- Main Content -->
+
+        <main class="main-content">
+
+
+            <!-- Top Bar -->
+
+            <header class="topbar">
+
+                <div>
+                    <span class="eyebrow">CUSTOMER ANALYTICS</span>
+
+                    <h1>Customer Churn Dashboard</h1>
+
+                    <p>
+                        Analyze customer behavior and predict churn risk using machine learning.
+                    </p>
+                </div>
+
+                <div class="status">
+                    <span class="status-dot"></span>
+                    Model Online
+                </div>
+
+            </header>
+
+
+            <!-- Dashboard -->
+
+            <section id="dashboard">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Overview</h2>
+                        <p>Customer retention overview from the Telco dataset.</p>
+                    </div>
+
+                </div>
+
+
+                <!-- KPI Cards -->
+
+                <div class="kpi-grid">
+
+                    <div class="kpi-card">
+
+                        <div class="kpi-top">
+                            <span>Total Customers</span>
+                            <div class="kpi-icon">01</div>
+                        </div>
+
+                        <strong>7,043</strong>
+
+                        <small>Customers in dataset</small>
+
+                    </div>
+
+
+                    <div class="kpi-card">
+
+                        <div class="kpi-top">
+                            <span>Churn Rate</span>
+                            <div class="kpi-icon">02</div>
+                        </div>
+
+                        <strong>26.54%</strong>
+
+                        <small>Customers who churned</small>
+
+                    </div>
+
+
+                    <div class="kpi-card">
+
+                        <div class="kpi-top">
+                            <span>Customers Churned</span>
+                            <div class="kpi-icon">03</div>
+                        </div>
+
+                        <strong>1,869</strong>
+
+                        <small>Customers who left</small>
+
+                    </div>
+
+
+                    <div class="kpi-card">
+
+                        <div class="kpi-top">
+                            <span>Customers Retained</span>
+                            <div class="kpi-icon">04</div>
+                        </div>
+
+                        <strong>5,174</strong>
+
+                        <small>Customers who stayed</small>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Analytics -->
+
+            <section id="analytics" class="analytics-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Churn Analytics</h2>
+                        <p>Key patterns discovered during exploratory data analysis.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="analytics-grid">
+
+
+                    <!-- Contract Chart -->
+
+                    <div class="chart-card">
+
+                        <div class="chart-header">
+
+                            <div>
+                                <h3>Churn by Contract</h3>
+                                <span>Churn percentage by contract type</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="chart">
+
+                            <div class="chart-row">
+
+                                <div class="chart-label">
+                                    <span>Month-to-month</span>
+                                    <strong>42.71%</strong>
+                                </div>
+
+                                <div class="bar-background">
+                                    <div class="bar" style="width: 100%;"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="chart-row">
+
+                                <div class="chart-label">
+                                    <span>One year</span>
+                                    <strong>11.27%</strong>
+                                </div>
+
+                                <div class="bar-background">
+                                    <div class="bar" style="width: 26.39%;"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="chart-row">
+
+                                <div class="chart-label">
+                                    <span>Two year</span>
+                                    <strong>2.83%</strong>
+                                </div>
+
+                                <div class="bar-background">
+                                    <div class="bar" style="width: 6.63%;"></div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Internet Service -->
+
+                    <div class="chart-card">
+
+                        <div class="chart-header">
+
+                            <div>
+                                <h3>Churn by Internet Service</h3>
+                                <span>Churn percentage by service type</span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="service-list">
+
+
+                            <div class="service-item">
+
+                                <div class="service-info">
+                                    <span>Fiber optic</span>
+                                    <strong>41.89%</strong>
+                                </div>
+
+                                <div class="service-line">
+                                    <div class="service-progress progress-high"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="service-item">
+
+                                <div class="service-info">
+                                    <span>DSL</span>
+                                    <strong>18.96%</strong>
+                                </div>
+
+                                <div class="service-line">
+                                    <div class="service-progress progress-medium"></div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="service-item">
+
+                                <div class="service-info">
+                                    <span>No Internet</span>
+                                    <strong>7.40%</strong>
+                                </div>
+
+                                <div class="service-line">
+                                    <div class="service-progress progress-low"></div>
+                                </div>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Prediction -->
+
+            <section id="prediction" class="prediction-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Predict Customer Churn</h2>
+
+                        <p>
+                            Enter customer information to estimate churn probability.
+                        </p>
+                    </div>
+
+                    <div class="prediction-badge">
+                        ML Prediction
+                    </div>
+
+                </div>
+
+
+                <div class="form-section">
+
+                    <form id="churnForm">
+
+
+                        <!-- Customer Profile -->
+
+                        <div class="form-block">
+
+                            <div class="form-block-title">
+
+                                <div class="number">01</div>
+
+                                <div>
+                                    <h3>Customer Profile</h3>
+                                    <p>Basic customer information</p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <label>Gender</label>
+
+                                    <select id="gender">
+                                        <option value="Female">Female</option>
+                                        <option value="Male">Male</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Senior Citizen</label>
+
+                                    <select id="SeniorCitizen">
+                                        <option value="0">No</option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Partner</label>
+
+                                    <select id="Partner">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Dependents</label>
+
+                                    <select id="Dependents">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Tenure (Months)</label>
+
+                                    <input
+                                        type="number"
+                                        id="tenure"
+                                        value="5"
+                                        min="0"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Services -->
+
+                        <div class="form-block">
+
+                            <div class="form-block-title">
+
+                                <div class="number">02</div>
+
+                                <div>
+                                    <h3>Services</h3>
+                                    <p>Subscribed services and support</p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <label>Phone Service</label>
+
+                                    <select id="PhoneService">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Multiple Lines</label>
+
+                                    <select id="MultipleLines">
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No phone service">
+                                            No phone service
+                                        </option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Internet Service</label>
+
+                                    <select id="InternetService">
+                                        <option value="Fiber optic">Fiber optic</option>
+                                        <option value="DSL">DSL</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Online Security</label>
+
+                                    <select id="OnlineSecurity">
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No internet service">
+                                            No internet service
+                                        </option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Online Backup</label>
+
+                                    <select id="OnlineBackup">
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No internet service">
+                                            No internet service
+                                        </option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Device Protection</label>
+
+                                    <select id="DeviceProtection">
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No internet service">
+                                            No internet service
+                                        </option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Tech Support</label>
+
+                                    <select id="TechSupport">
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                        <option value="No internet service">
+                                            No internet service
+                                        </option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Streaming TV</label>
+
+                                    <select id="StreamingTV">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                        <option value="No internet service">
+                                            No internet service
+                                        </option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Streaming Movies</label>
+
+                                    <select id="StreamingMovies">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                        <option value="No internet service">
+                                            No internet service
+                                        </option>
+                                    </select>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Billing -->
+
+                        <div class="form-block">
+
+                            <div class="form-block-title">
+
+                                <div class="number">03</div>
+
+                                <div>
+                                    <h3>Contract & Billing</h3>
+                                    <p>Subscription and payment information</p>
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-grid">
+
+                                <div class="form-group">
+                                    <label>Contract</label>
+
+                                    <select id="Contract">
+                                        <option value="Month-to-month">
+                                            Month-to-month
+                                        </option>
+
+                                        <option value="One year">
+                                            One year
+                                        </option>
+
+                                        <option value="Two year">
+                                            Two year
+                                        </option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Paperless Billing</label>
+
+                                    <select id="PaperlessBilling">
+                                        <option value="Yes">Yes</option>
+                                        <option value="No">No</option>
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Payment Method</label>
+
+                                    <select id="PaymentMethod">
+
+                                        <option value="Electronic check">
+                                            Electronic check
+                                        </option>
+
+                                        <option value="Mailed check">
+                                            Mailed check
+                                        </option>
+
+                                        <option value="Bank transfer (automatic)">
+                                            Bank transfer (automatic)
+                                        </option>
+
+                                        <option value="Credit card (automatic)">
+                                            Credit card (automatic)
+                                        </option>
+
+                                    </select>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Monthly Charges</label>
+
+                                    <input
+                                        type="number"
+                                        id="MonthlyCharges"
+                                        value="85.5"
+                                        step="0.01"
+                                        min="0"
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label>Total Charges</label>
+
+                                    <input
+                                        type="number"
+                                        id="TotalCharges"
+                                        value="427.5"
+                                        step="0.01"
+                                        min="0"
+                                    >
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button type="submit" class="predict-button">
+                            Predict Churn
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </section>
+
+
+            <!-- Prediction Result -->
+
+            <section id="result" class="result-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Prediction Result</h2>
+
+                        <p>
+                            Output generated by the trained Logistic Regression model.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="result-grid">
+
+                    <div class="result-card">
+
+                        <span>Prediction</span>
+
+                        <strong id="prediction">-</strong>
+
+                    </div>
+
+
+                    <div class="result-card">
+
+                        <span>Churn Probability</span>
+
+                        <strong id="probability">-</strong>
+
+                    </div>
+
+
+                    <div class="result-card">
+
+                        <span>Risk Level</span>
+
+                        <strong id="risk">-</strong>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Model Performance -->
+
+            <section id="model" class="model-section">
+
+                <div class="section-heading">
+
+                    <div>
+                        <h2>Model Performance</h2>
+
+                        <p>
+                            Evaluation results on the test dataset.
+                        </p>
+                    </div>
+
+                    <div class="model-name">
+                        Logistic Regression
+                    </div>
+
+                </div>
+
+
+                <div class="metrics-grid">
+
+                    <div class="metric">
+                        <span>Accuracy</span>
+                        <strong>80.48%</strong>
+                    </div>
+
+
+                    <div class="metric">
+                        <span>Precision</span>
+                        <strong>65.33%</strong>
+                    </div>
+
+
+                    <div class="metric">
+                        <span>Recall</span>
+                        <strong>56.42%</strong>
+                    </div>
+
+
+                    <div class="metric">
+                        <span>F1 Score</span>
+                        <strong>60.55%</strong>
+                    </div>
+
+
+                    <div class="metric">
+                        <span>ROC-AUC</span>
+                        <strong>84.31%</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <footer>
+
+                <p>
+                    Customer Churn Prediction • Machine Learning Portfolio Project
+                </p>
+
+            </footer>
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
