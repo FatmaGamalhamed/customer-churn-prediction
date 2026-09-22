@@ -1,7 +1,9 @@
+```python
 from pathlib import Path
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import FileResponse
 from pydantic import BaseModel
 import joblib
 import pandas as pd
@@ -9,6 +11,7 @@ import pandas as pd
 
 # Project path
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 # Create FastAPI app
 app = FastAPI(title="Customer Churn Prediction API")
@@ -50,11 +53,13 @@ class CustomerData(BaseModel):
     TotalCharges: float
 
 
+# Serve frontend
 @app.get("/")
 def home():
-    return {"message": "Customer Churn Prediction API is running"}
+    return FileResponse(BASE_DIR / "frontend" / "index.html")
 
 
+# Prediction endpoint
 @app.post("/predict")
 def predict(data: CustomerData):
 
@@ -75,3 +80,4 @@ def predict(data: CustomerData):
         "churn_probability": round(float(probability), 4),
         "risk_level": risk
     }
+```
