@@ -1,6 +1,4 @@
-```python
 from pathlib import Path
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
@@ -8,16 +6,10 @@ from pydantic import BaseModel
 import joblib
 import pandas as pd
 
-
-# Project path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
-# Create FastAPI app
 app = FastAPI(title="Customer Churn Prediction API")
 
-
-# Allow frontend to connect to the API
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -25,12 +17,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-# Load trained model
 model = joblib.load(BASE_DIR / "model" / "churn_pipeline.pkl")
 
 
-# Customer input
 class CustomerData(BaseModel):
     gender: str
     SeniorCitizen: int
@@ -53,16 +42,13 @@ class CustomerData(BaseModel):
     TotalCharges: float
 
 
-# Serve frontend
 @app.get("/")
 def home():
     return FileResponse(BASE_DIR / "frontend" / "index.html")
 
 
-# Prediction endpoint
 @app.post("/predict")
 def predict(data: CustomerData):
-
     input_data = pd.DataFrame([data.model_dump()])
 
     prediction = model.predict(input_data)[0]
@@ -80,4 +66,3 @@ def predict(data: CustomerData):
         "churn_probability": round(float(probability), 4),
         "risk_level": risk
     }
-```
